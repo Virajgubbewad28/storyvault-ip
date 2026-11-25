@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register New Story Image — StoryVault IP</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'royal-indigo': '#4F46E5',
+        'indigo-tint': '#EEF2FF',
+        'emerald-verified': '#059669',
+        'emerald-tint': '#ECFDF5',
+        'emerald-ink': '#065F46',
+        'slate-border': '#E2E8F0',
+        'light-primary': '#4F46E5',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#EEF2FF',
+        'light-on-primary-container': '#3730A3',
+        'light-secondary': '#059669',
+        'light-on-secondary': '#1C1C1C',
+        'light-secondary-container': '#ECFDF5',
+        'light-on-secondary-container': '#065F46',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-on-surface': '#0F172A',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-error': '#DC2626',
+        'light-on-error': '#FFFFFF',
+        'dark-secondary': '#68DBA9',
+        'dark-secondary-container': '#065F46',
+        'dark-on-secondary-container': '#ECFDF5',
+        'dark-on-surface': '#F8FAFC',
+        'dark-on-surface-variant': '#CBD5E1',
+        'dark-outline-variant': '#334155',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+      fontSize: {
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+      },
+    },
+  },
+};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col bg-light-surface">
+
+    <!-- 1. Top Sticky Navbar -->
+    <header class="sticky top-0 z-30 bg-light-surface-container-lowest border-b border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-md flex flex-wrap items-center justify-between gap-gutter-md">
+        <a href="{{ url_for('index') }}" class="flex items-center gap-gutter-sm group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary rounded">
+          <div class="w-10 h-10 rounded bg-light-primary-container border border-light-outline-variant flex items-center justify-center shrink-0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-light-primary">
+              <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+              <path d="M12 7.5L15.2 12.5L12 16.5L8.8 12.5L12 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              <path d="M12 7.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface leading-tight">StoryVault IP</span>
+            <span class="font-label text-label-sm text-light-on-surface-variant">Digital Story Image Source Register</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary Navigation" class="flex items-center gap-gutter-lg md:gap-gutter-xl">
+          <a href="{{ url_for('index') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Home</a>
+          <a href="{{ url_for('register') }}" class="font-label text-label-lg text-light-primary transition-colors duration-state-change">Register Asset</a>
+          <a href="{{ url_for('ledger') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Source Ledger</a>
+          <a href="{{ url_for('verify') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Verify &amp; Certificate</a>
+        </nav>
+
+        <div class="flex items-center">
+          <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-verified shrink-0" aria-hidden="true"></span>
+            <span>IP &amp; Copyright Provenance Active</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main id="register-workspace" class="flex-1">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-xl flex flex-col gap-gutter-xl">
+
+        <!-- 1. Page Header -->
+        <section class="flex flex-col gap-gutter-sm border-b border-light-outline-variant pb-gutter-lg">
+          <nav aria-label="Breadcrumb" class="flex items-center gap-gutter-xs">
+            <a href="{{ url_for('index') }}" class="font-label text-label-sm text-light-on-surface-variant hover:text-light-primary transition-colors">Home</a>
+            <span class="font-label text-label-sm text-light-outline">/</span>
+            <span class="font-label text-label-sm text-light-primary">Register Asset</span>
+          </nav>
+
+          <h1 class="font-headline text-headline-lg text-light-on-surface">
+            Register New Story Image
+          </h1>
+
+          <p class="font-body text-body-md text-light-on-surface-variant max-w-prose text-pretty">
+            Upload a digital story frame to compute its cryptographic SHA-256 fingerprint and record its legal source provenance.
+          </p>
+
+          {% if error_msg %}
+          <div role="alert" class="mt-2 bg-red-50 border border-light-error text-light-error rounded-md px-4 py-3 font-label text-label-lg">
+            {{ error_msg }}
+          </div>
+          {% endif %}
+        </section>
+
+        <!-- 2. Main 2-Column Split Workspace -->
+        <form id="register-form" action="{{ url_for('register') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-xl items-start">
+
+          <!-- Left Card: 1. Story Artwork & Technical Telemetry -->
+          <section class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-gutter-lg flex flex-col gap-gutter-lg">
+            <header class="flex items-center justify-between gap-gutter-sm pb-gutter-md border-b border-light-outline-variant">
+              <h2 class="font-headline text-headline-md text-light-on-surface">
+                1. Story Artwork &amp; Technical Telemetry
+              </h2>
+              <span class="font-mono text-mono-sm text-light-primary bg-light-primary-container px-2.5 py-1 rounded-full">STEP 01</span>
+            </header>
+
+            <!-- Hidden File Input + Interactive Dropzone -->
+            <input id="story-image-input" name="story_image" type="file" accept="image/png,image/jpeg,image/webp" required class="sr-only">
+            <div id="dropzone" role="button" tabindex="0" aria-label="Drop story panel here or Browse Files" class="border-2 border-dashed border-light-outline-variant hover:border-light-primary rounded-md bg-light-surface p-gutter-xl flex flex-col items-center justify-center text-center gap-gutter-sm transition-colors duration-state-change cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary">
+              <div class="w-12 h-12 rounded-full bg-light-primary-container text-light-primary flex items-center justify-center">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 18C4.79086 18 3 16.2091 3 14C3 12.0929 4.33457 10.4976 6.12071 10.0967C6.57825 7.20784 9.07645 5 12.0909 5C15.4096 5 18.1 7.68629 18.1 11C18.1 11.2136 18.0888 11.4246 18.0671 11.6324C19.7405 12.119 21 13.6634 21 15.5C21 17.433 19.433 19 17.5 19H15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M12 12V20M12 12L9.5 14.5M12 12L14.5 14.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <p class="font-label text-label-lg text-light-on-surface">
+                Drop story panel here or <span class="text-light-primary underline underline-offset-2">Browse Files</span> (PNG, JPG, WEBP)
+              </p>
+              <p class="font-body text-body-sm text-light-on-surface-variant">
+                Real-time SHA-256 hashing • Maximum file size 50 MB
+              </p>
+            </div>
+
+            <!-- Staged Story Frame Preview Card -->
+            <div class="bg-light-surface border border-light-outline-variant rounded-md p-gutter-md flex flex-col gap-gutter-md">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider">Staged Story Frame</span>
+                <span id="preview-filename" class="font-mono text-mono-sm text-light-on-surface">Awaiting image upload (Sample Preview Shown)</span>
+              </div>
+
+              <div class="rounded overflow-hidden border border-light-outline-variant bg-light-on-surface aspect-[16/8] w-full flex items-center justify-center">
+                <img id="preview-image" src="" alt="Uploaded story frame preview" class="hidden w-full h-full object-contain bg-slate-900">
+                <svg id="preview-placeholder-svg" viewBox="0 0 480 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" role="img" aria-label="Sample preview">
+                  <rect width="480" height="240" fill="#0F172A"></rect>
+                  <circle cx="380" cy="64" r="46" fill="#4F46E5" fill-opacity="0.28"></circle>
+                  <circle cx="380" cy="64" r="24" fill="#68DBA9" fill-opacity="0.22"></circle>
+                  <rect x="44" y="88" width="52" height="112" fill="#1E293B"></rect>
+                  <rect x="108" y="54" width="68" height="146" fill="#312E81"></rect>
+                  <rect x="190" y="72" width="84" height="128" fill="#1E293B"></rect>
+                  <rect x="288" y="42" width="64" height="158" fill="#3730A3"></rect>
+                  <rect x="366" y="96" width="72" height="104" fill="#1E293B"></rect>
+                  <path d="M122 72H162M122 88H162M122 104H162M122 120H162" stroke="#68DBA9" stroke-width="2" stroke-opacity="0.8"></path>
+                  <path d="M302 60H338M302 78H338M302 96H338M302 114H338" stroke="#C3C0FF" stroke-width="2" stroke-opacity="0.85"></path>
+                  <path d="M0 162H480" stroke="#4F46E5" stroke-width="4"></path>
+                  <path d="M0 168H480" stroke="#68DBA9" stroke-width="1.5" stroke-dasharray="10 6"></path>
+                  <path d="M0 200H480" stroke="#334155" stroke-width="2"></path>
+                  <rect x="16" y="16" width="448" height="208" rx="4" stroke="#4F46E5" stroke-opacity="0.45" stroke-width="1.5"></rect>
+                </svg>
+              </div>
+
+              <!-- Telemetry Readout Row -->
+              <div class="grid grid-cols-3 gap-gutter-sm pt-gutter-xs">
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-3 py-2 flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-light-on-surface-variant">File Size</span>
+                  <span id="telemetry-size" class="font-mono text-mono-sm text-light-on-surface tabular-nums">—</span>
+                </div>
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-3 py-2 flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-light-on-surface-variant">Dimensions</span>
+                  <span id="telemetry-dimensions" class="font-mono text-mono-sm text-light-on-surface tabular-nums">—</span>
+                </div>
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-3 py-2 flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-light-on-surface-variant">Color Profile</span>
+                  <span id="telemetry-profile" class="font-mono text-mono-sm text-light-on-surface tabular-nums">sRGB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark-Slate Terminal Box: LIVE SHA-256 DIGITAL FINGERPRINT -->
+            <div class="bg-light-on-surface text-dark-on-surface rounded-md p-gutter-md flex flex-col gap-gutter-sm">
+              <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+                <span class="font-label text-label-sm text-dark-on-surface-variant uppercase tracking-wider">
+                  LIVE SHA-256 DIGITAL FINGERPRINT
+                </span>
+                <span id="hash-status-badge" class="inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-dark-secondary-container text-dark-on-secondary-container font-label text-label-sm">
+                  <span id="hash-status-icon" class="material-symbols-outlined text-body-md text-dark-secondary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                  <span id="hash-status-text">Select an image to compute live SHA-256 digest</span>
+                </span>
+              </div>
+
+              <div class="bg-light-on-surface border border-dark-outline-variant rounded px-3 py-2.5">
+                <code id="live-sha256-hash" class="font-mono text-mono-sm text-dark-on-surface tabular-nums break-all">
+                  8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4
+                </code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Right Card: 2. Authorship & Source Classification Form -->
+          <section class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-gutter-lg flex flex-col gap-gutter-lg">
+            <header class="flex items-center justify-between gap-gutter-sm pb-gutter-md border-b border-light-outline-variant">
+              <h2 class="font-headline text-headline-md text-light-on-surface">
+                2. Authorship &amp; Source Classification Form
+              </h2>
+              <span class="font-mono text-mono-sm text-light-primary bg-light-primary-container px-2.5 py-1 rounded-full">STEP 02</span>
+            </header>
+
+            <div class="flex flex-col gap-gutter-md">
+              <div class="flex flex-col gap-gutter-xs">
+                <label for="story-title" class="font-label text-label-lg text-light-on-surface">Digital Story Title</label>
+                <input id="story-title" name="story_title" type="text" value="Neon Bengaluru 2099" required class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <label for="episode-no" class="font-label text-label-lg text-light-on-surface">Chapter / Episode No.</label>
+                  <input id="episode-no" name="episode_no" type="text" value="Episode 04" required class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <label for="frame-id" class="font-label text-label-lg text-light-on-surface">Panel / Frame ID</label>
+                  <input id="frame-id" name="frame_id" type="text" value="Frame 01" required class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <label for="primary-creator" class="font-label text-label-lg text-light-on-surface">Primary Creator / Author</label>
+                  <input id="primary-creator" name="primary_creator" type="text" value="Viraj S." required class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+                </div>
+                <div class="flex flex-col gap-gutter-xs">
+                  <label for="co-author" class="font-label text-label-lg text-light-on-surface">Co-Author / Illustrator (Optional)</label>
+                  <input id="co-author" name="co_author" type="text" value="None — Sole Authorship" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface-variant focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+                </div>
+              </div>
+
+              <!-- Image Source Classification -->
+              <fieldset class="flex flex-col gap-gutter-sm">
+                <legend class="font-label text-label-lg text-light-on-surface mb-gutter-xs">
+                  Image Source Classification
+                </legend>
+                <div id="classification-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+                  <label class="classification-card relative flex items-center justify-between gap-gutter-sm rounded-md border-2 border-light-primary bg-light-primary-container/50 p-gutter-md cursor-pointer transition-colors">
+                    <input type="radio" name="source_classification" value="Original Artwork" checked class="sr-only">
+                    <div class="flex items-center gap-gutter-sm">
+                      <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">draw</span>
+                      <span class="font-label text-label-lg text-light-on-surface">Original Artwork</span>
+                    </div>
+                    <span class="check-icon material-symbols-outlined text-title-md text-light-primary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                  </label>
+
+                  <label class="classification-card relative flex items-center justify-between gap-gutter-sm rounded-md border border-light-outline-variant bg-light-surface-container-lowest hover:border-light-primary p-gutter-md cursor-pointer transition-colors">
+                    <input type="radio" name="source_classification" value="Licensed Stock" class="sr-only">
+                    <div class="flex items-center gap-gutter-sm">
+                      <span class="material-symbols-outlined text-title-md text-light-on-surface-variant" aria-hidden="true">workspace_premium</span>
+                      <span class="font-label text-label-lg text-light-on-surface">Licensed Stock</span>
+                    </div>
+                    <span class="check-icon hidden material-symbols-outlined text-title-md text-light-primary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                  </label>
+
+                  <label class="classification-card relative flex items-center justify-between gap-gutter-sm rounded-md border border-light-outline-variant bg-light-surface-container-lowest hover:border-light-primary p-gutter-md cursor-pointer transition-colors">
+                    <input type="radio" name="source_classification" value="Public Domain / CC0" class="sr-only">
+                    <div class="flex items-center gap-gutter-sm">
+                      <span class="material-symbols-outlined text-title-md text-light-on-surface-variant" aria-hidden="true">public</span>
+                      <span class="font-label text-label-lg text-light-on-surface">Public Domain / CC0</span>
+                    </div>
+                    <span class="check-icon hidden material-symbols-outlined text-title-md text-light-primary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                  </label>
+
+                  <label class="classification-card relative flex items-center justify-between gap-gutter-sm rounded-md border border-light-outline-variant bg-light-surface-container-lowest hover:border-light-primary p-gutter-md cursor-pointer transition-colors">
+                    <input type="radio" name="source_classification" value="AI-Assisted Work" class="sr-only">
+                    <div class="flex items-center gap-gutter-sm">
+                      <span class="material-symbols-outlined text-title-md text-light-on-surface-variant" aria-hidden="true">auto_awesome</span>
+                      <span class="font-label text-label-lg text-light-on-surface">AI-Assisted Work</span>
+                    </div>
+                    <span class="check-icon hidden material-symbols-outlined text-title-md text-light-primary" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Copyright & Usage License Dropdown -->
+              <div class="flex flex-col gap-gutter-xs">
+                <label for="usage-license" class="font-label text-label-lg text-light-on-surface">
+                  Copyright &amp; Usage License
+                </label>
+                <select id="usage-license" name="usage_license" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3.5 py-2.5 font-body text-body-md text-light-on-surface focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+                  <option selected>All Rights Reserved — Author Copyright</option>
+                  <option>Creative Commons Attribution 4.0 (CC BY 4.0)</option>
+                  <option>Commercial Publishing License — Webtoon Exclusive</option>
+                  <option>CC0 1.0 Universal — Public Domain Dedication</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-gutter-sm">
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-gutter-sm px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg transition-colors duration-state-change hover:bg-light-on-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary focus-visible:ring-offset-2">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">verified_user</span>
+                  <span>Commit to Source Register &amp; Generate Certificate</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+        </form>
+      </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="border-t border-light-outline-variant bg-light-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-lg flex items-center justify-center text-center">
+        <p class="font-body text-body-sm text-light-on-surface-variant">
+          StoryVault IP • Digital Story Image Source Register
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      // Visual radio card toggle
+      const cards = document.querySelectorAll('.classification-card');
+      cards.forEach((card) => {
+        const radio = card.querySelector('input[type="radio"]');
+        if (!radio) return;
+        radio.addEventListener('change', () => {
+          cards.forEach((c) => {
+            c.classList.remove('border-2', 'border-light-primary', 'bg-light-primary-container/50');
+            c.classList.add('border', 'border-light-outline-variant', 'bg-light-surface-container-lowest');
+            const icon = c.querySelector('.check-icon');
+            if (icon) icon.classList.add('hidden');
+          });
+          if (radio.checked) {
+            card.classList.remove('border', 'border-light-outline-variant', 'bg-light-surface-container-lowest');
+            card.classList.add('border-2', 'border-light-primary', 'bg-light-primary-container/50');
+            const activeIcon = card.querySelector('.check-icon');
+            if (activeIcon) activeIcon.classList.remove('hidden');
+          }
+        });
+      });
+
+      // Drag-and-drop & live SHA-256 inspection
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('story-image-input');
+      const previewImage = document.getElementById('preview-image');
+      const placeholderSvg = document.getElementById('preview-placeholder-svg');
+      const previewFilename = document.getElementById('preview-filename');
+      const telemetrySize = document.getElementById('telemetry-size');
+      const telemetryDimensions = document.getElementById('telemetry-dimensions');
+      const telemetryProfile = document.getElementById('telemetry-profile');
+      const liveHash = document.getElementById('live-sha256-hash');
+      const statusBadge = document.getElementById('hash-status-badge');
+      const statusText = document.getElementById('hash-status-text');
+
+      dropzone.addEventListener('click', () => fileInput.click());
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('border-light-primary', 'bg-light-primary-container/30');
+      });
+      dropzone.addEventListener('dragleave', () => {
+        dropzone.classList.remove('border-light-primary', 'bg-light-primary-container/30');
+      });
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('border-light-primary', 'bg-light-primary-container/30');
+        if (e.dataTransfer.files.length > 0) {
+          fileInput.files = e.dataTransfer.files;
+          handleFileSelected(e.dataTransfer.files[0]);
+        }
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          handleFileSelected(fileInput.files[0]);
+        }
+      });
+
+      async function handleFileSelected(file) {
+        previewFilename.textContent = file.name;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          previewImage.src = ev.target.result;
+          previewImage.classList.remove('hidden');
+          placeholderSvg.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+
+        statusText.textContent = 'Computing SHA-256 digest...';
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+          const resp = await fetch('/api/inspect', { method: 'POST', body: formData });
+          const data = await resp.json();
+          if (resp.ok) {
+            telemetrySize.textContent = data.file_size;
+            telemetryDimensions.textContent = data.dimensions;
+            telemetryProfile.textContent = data.color_profile;
+            liveHash.textContent = data.sha256_hash;
+
+            if (data.collision) {
+              statusBadge.className = 'inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-amber-900/60 text-amber-200 font-label text-label-sm';
+              statusText.textContent = `Collision Found — Already Registered as #${data.collision.reg_id}`;
+            } else {
+              statusBadge.className = 'inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-dark-secondary-container text-dark-on-secondary-container font-label text-label-sm';
+              statusText.textContent = 'Unique Asset — No Prior Collision Found';
+            }
+          }
+        } catch (err) {
+          statusText.textContent = 'Error inspecting image';
+        }
+      }
+    })();
+  </script>
+</body></html>

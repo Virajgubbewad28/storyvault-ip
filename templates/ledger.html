@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Source Register Ledger — StoryVault IP</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'royal-indigo': '#4F46E5',
+        'indigo-tint': '#EEF2FF',
+        'emerald-verified': '#059669',
+        'emerald-tint': '#ECFDF5',
+        'emerald-ink': '#065F46',
+        'amber-tint': '#FEF3C7',
+        'amber-ink': '#92400E',
+        'blue-tint': '#DBEAFE',
+        'blue-ink': '#1E40AF',
+        'purple-tint': '#F3E8FF',
+        'purple-ink': '#6B21A8',
+        'slate-border': '#E2E8F0',
+        'light-primary': '#4F46E5',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#EEF2FF',
+        'light-on-primary-container': '#3730A3',
+        'light-secondary': '#059669',
+        'light-secondary-container': '#ECFDF5',
+        'light-on-secondary-container': '#065F46',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-on-surface': '#0F172A',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+      fontSize: {
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+      },
+    },
+  },
+};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col bg-light-surface">
+
+    <!-- 1. Top Sticky Navbar -->
+    <header class="sticky top-0 z-30 bg-light-surface-container-lowest border-b border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-md flex flex-wrap items-center justify-between gap-gutter-md">
+        <a href="{{ url_for('index') }}" class="flex items-center gap-gutter-sm group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary rounded">
+          <div class="w-10 h-10 rounded bg-light-primary-container border border-light-outline-variant flex items-center justify-center shrink-0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-light-primary">
+              <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+              <path d="M12 7.5L15.2 12.5L12 16.5L8.8 12.5L12 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              <path d="M12 7.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface leading-tight">StoryVault IP</span>
+            <span class="font-label text-label-sm text-light-on-surface-variant">Digital Story Image Source Register</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary Navigation" class="flex items-center gap-gutter-lg md:gap-gutter-xl">
+          <a href="{{ url_for('index') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Home</a>
+          <a href="{{ url_for('register') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Register Asset</a>
+          <a href="{{ url_for('ledger') }}" class="font-label text-label-lg text-light-primary transition-colors">Source Ledger</a>
+          <a href="{{ url_for('verify') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Verify &amp; Certificate</a>
+        </nav>
+
+        <div class="flex items-center">
+          <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-verified shrink-0" aria-hidden="true"></span>
+            <span>IP &amp; Copyright Provenance Active</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main id="ledger-main" class="flex-1">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-xl flex flex-col gap-gutter-lg">
+
+        <!-- 1. Top Summary Strip: 4 Compact KPI Cards -->
+        <section aria-label="Registry Summary Metrics" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-md items-stretch">
+          <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-sm text-light-on-surface-variant">Total Registered Frames</span>
+            <span class="font-headline text-headline-lg text-light-on-surface tabular-nums">{{ total_count }}</span>
+          </article>
+
+          <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-sm text-light-on-surface-variant">Original Author Works</span>
+            <span class="font-headline text-headline-lg text-light-on-surface tabular-nums">{{ original_count }} ({{ original_pct }}%)</span>
+          </article>
+
+          <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-sm text-light-on-surface-variant">Licensed / CC0 Assets</span>
+            <span class="font-headline text-headline-lg text-light-on-surface tabular-nums">{{ licensed_cc0_count }} ({{ licensed_pct }}%)</span>
+          </article>
+
+          <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-md flex flex-col justify-between gap-gutter-xs">
+            <span class="font-label text-label-sm text-light-on-surface-variant">Tamper Integrity</span>
+            <div class="flex items-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-headline-md text-emerald-verified" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+              <span class="font-headline text-headline-md text-emerald-ink tabular-nums">100% Verified</span>
+            </div>
+          </article>
+        </section>
+
+        <!-- 2. Filter & Search Control Bar -->
+        <section aria-label="Search and Filter Controls" class="bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-md flex flex-col gap-gutter-md">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-gutter-md">
+            <div class="relative flex-1 max-w-2xl">
+              <span class="material-symbols-outlined text-title-md text-light-outline absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">search</span>
+              <input id="ledger-search" type="search" aria-label="Search registered story assets" placeholder="Search by Story Title, Author, Registration ID, or SHA-256 Hash..." class="w-full rounded border border-light-outline-variant bg-light-surface pl-10 pr-4 py-2.5 font-body text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 focus:outline-none">
+            </div>
+
+            <a href="{{ url_for('register') }}" class="inline-flex items-center justify-center gap-gutter-xs px-5 py-2.5 rounded bg-light-primary text-light-on-primary font-label text-label-lg transition-colors hover:bg-light-on-primary-container shrink-0">
+              <span>+ Register New Image</span>
+            </a>
+          </div>
+
+          <!-- Filter Pill Tabs -->
+          <div class="flex flex-wrap items-center gap-gutter-sm pt-gutter-xs border-t border-light-outline-variant" role="tablist" aria-label="Filter by source classification">
+            <button type="button" role="tab" aria-selected="true" class="filter-tab px-3.5 py-1.5 rounded-full bg-light-primary text-light-on-primary font-label text-label-sm transition-colors" data-filter="all">
+              All Assets ({{ total_count }})
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-tab px-3.5 py-1.5 rounded-full bg-light-surface text-light-on-surface-variant border border-light-outline-variant hover:border-light-primary font-label text-label-sm transition-colors" data-filter="Original Artwork">
+              Original Artwork
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-tab px-3.5 py-1.5 rounded-full bg-light-surface text-light-on-surface-variant border border-light-outline-variant hover:border-light-primary font-label text-label-sm transition-colors" data-filter="Licensed Stock">
+              Licensed Stock
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-tab px-3.5 py-1.5 rounded-full bg-light-surface text-light-on-surface-variant border border-light-outline-variant hover:border-light-primary font-label text-label-sm transition-colors" data-filter="Public Domain / CC0">
+              Public Domain
+            </button>
+            <button type="button" role="tab" aria-selected="false" class="filter-tab px-3.5 py-1.5 rounded-full bg-light-surface text-light-on-surface-variant border border-light-outline-variant hover:border-light-primary font-label text-label-sm transition-colors" data-filter="AI-Assisted Work">
+              AI-Assisted
+            </button>
+          </div>
+        </section>
+
+        <!-- 3. Main Data Table Card -->
+        <section class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg overflow-hidden flex flex-col">
+          <header class="px-gutter-lg py-gutter-md border-b border-light-outline-variant flex flex-wrap items-center justify-between gap-gutter-sm">
+            <h1 class="font-headline text-headline-md text-light-on-surface">
+              Immutable Image Provenance Registry
+            </h1>
+            <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">LEDGER SYNC: LIVE (SQLITE WAL)</span>
+          </header>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-light-surface border-b border-light-outline-variant">
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">Reg. ID</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">Story &amp; Frame Preview</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">Creator / Author</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">Source Type</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">SHA-256 Fingerprint</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider whitespace-nowrap">Registered Timestamp</th>
+                  <th scope="col" class="px-gutter-md py-3 font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider text-right whitespace-nowrap">Action</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-tbody" class="divide-y divide-light-outline-variant">
+                {% for asset in assets %}
+                <tr class="ledger-row hover:bg-light-surface/70 transition-colors"
+                    data-source="{{ asset['source_type'] }}"
+                    data-search="{{ (asset['reg_id'] ~ ' ' ~ asset['story_title'] ~ ' ' ~ asset['primary_creator'] ~ ' ' ~ asset['sha256_hash'])|lower }}">
+                  <td class="px-gutter-md py-gutter-md whitespace-nowrap">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded bg-light-surface border border-light-outline-variant font-mono text-mono-sm text-light-on-surface tabular-nums">#{{ asset['reg_id'] }}</span>
+                  </td>
+                  <td class="px-gutter-md py-gutter-md">
+                    <div class="flex items-center gap-gutter-sm min-w-[220px]">
+                      <div class="w-12 h-12 rounded overflow-hidden border border-light-outline-variant bg-light-on-surface shrink-0 flex items-center justify-center">
+                        {% if asset['file_path'] %}
+                          <img src="{{ url_for('static', filename=asset['file_path']) }}" alt="{{ asset['story_title'] }}" class="w-full h-full object-cover">
+                        {% else %}
+                          <svg viewBox="0 0 48 48" fill="none" class="w-full h-full" aria-hidden="true">
+                            <rect width="48" height="48" fill="#0F172A"></rect>
+                            <rect x="6" y="14" width="12" height="24" fill="#312E81"></rect>
+                            <rect x="22" y="8" width="14" height="30" fill="#3730A3"></rect>
+                            <path d="M0 32H48" stroke="#4F46E5" stroke-width="2"></path>
+                            <circle cx="36" cy="12" r="5" fill="#68DBA9" fill-opacity="0.45"></circle>
+                          </svg>
+                        {% endif %}
+                      </div>
+                      <div class="flex flex-col">
+                        <span class="font-label text-label-lg text-light-on-surface">{{ asset['story_title'] }}</span>
+                        <span class="font-body text-body-sm text-light-on-surface-variant">{{ asset['episode_no'] }} • {{ asset['frame_id'] }}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-gutter-md py-gutter-md whitespace-nowrap">
+                    <div class="flex flex-col">
+                      <span class="font-label text-label-lg text-light-on-surface">{{ asset['primary_creator'] }}</span>
+                      <span class="font-body text-body-sm text-light-on-surface-variant">{{ asset['co_author'] }}</span>
+                    </div>
+                  </td>
+                  <td class="px-gutter-md py-gutter-md whitespace-nowrap">
+                    {% if asset['source_type'] == 'Original Artwork' %}
+                      <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-tint text-emerald-ink font-label text-label-sm">Original Artwork</span>
+                    {% elif asset['source_type'] == 'Licensed Stock' %}
+                      <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-tint text-amber-ink font-label text-label-sm">Licensed Stock</span>
+                    {% elif asset['source_type'] == 'Public Domain / CC0' %}
+                      <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-tint text-blue-ink font-label text-label-sm">Public Domain CC0</span>
+                    {% else %}
+                      <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-tint text-purple-ink font-label text-label-sm">{{ asset['source_type'] }}</span>
+                    {% endif %}
+                  </td>
+                  <td class="px-gutter-md py-gutter-md whitespace-nowrap">
+                    <button type="button" onclick="copyHash('{{ asset['sha256_hash'] }}', this)" class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded bg-light-surface border border-light-outline-variant hover:border-light-primary font-mono text-mono-sm text-light-on-surface tabular-nums transition-colors" title="Click to copy full SHA-256 digest">
+                      <span>{{ asset['sha256_hash'][:6] }}...{{ asset['sha256_hash'][-6:] }}</span>
+                      <span class="material-symbols-outlined text-body-md text-light-outline" aria-hidden="true">content_copy</span>
+                    </button>
+                  </td>
+                  <td class="px-gutter-md py-gutter-md whitespace-nowrap">
+                    <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">{{ asset['registered_at'] }}</span>
+                  </td>
+                  <td class="px-gutter-md py-gutter-md text-right whitespace-nowrap">
+                    <a href="{{ url_for('verify', reg_id=asset['reg_id']) }}" class="inline-flex items-center justify-center px-3 py-1.5 rounded bg-light-surface-container-lowest border border-light-outline-variant hover:border-light-primary font-label text-label-sm text-light-on-surface transition-colors">
+                      View Certificate
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 4. Pagination / Count Footer -->
+          <footer class="px-gutter-lg py-gutter-md border-t border-light-outline-variant bg-light-surface flex flex-wrap items-center justify-between gap-gutter-md">
+            <p id="visible-count-text" class="font-body text-body-sm text-light-on-surface-variant tabular-nums">
+              Showing {{ total_count }} of {{ total_count }} registered story assets
+            </p>
+            <span class="font-mono text-mono-sm text-light-primary">SHA-256 HASH INTEGRITY VERIFIED</span>
+          </footer>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="border-t border-light-outline-variant bg-light-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-lg flex items-center justify-center text-center">
+        <p class="font-body text-body-sm text-light-on-surface-variant">
+          StoryVault IP • Digital Story Image Source Register
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function copyHash(fullHash, btn) {
+      navigator.clipboard.writeText(fullHash);
+      const label = btn.querySelector('span:first-child');
+      const original = label.textContent;
+      label.textContent = 'Copied!';
+      setTimeout(() => { label.textContent = original; }, 1200);
+    }
+
+    (function () {
+      const tabs = document.querySelectorAll('.filter-tab');
+      const rows = document.querySelectorAll('.ledger-row');
+      const searchInput = document.getElementById('ledger-search');
+      const countText = document.getElementById('visible-count-text');
+      let activeFilter = 'all';
+
+      function filterRows() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visible = 0;
+        rows.forEach((row) => {
+          const matchesType = activeFilter === 'all' || row.dataset.source === activeFilter;
+          const matchesQuery = !query || row.dataset.search.includes(query);
+          if (matchesType && matchesQuery) {
+            row.classList.remove('hidden');
+            visible++;
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+        countText.textContent = `Showing ${visible} of ${rows.length} registered story assets`;
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          tabs.forEach((t) => {
+            t.classList.remove('bg-light-primary', 'text-light-on-primary');
+            t.classList.add('bg-light-surface', 'text-light-on-surface-variant', 'border', 'border-light-outline-variant');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.remove('bg-light-surface', 'text-light-on-surface-variant', 'border', 'border-light-outline-variant');
+          tab.classList.add('bg-light-primary', 'text-light-on-primary');
+          tab.setAttribute('aria-selected', 'true');
+          activeFilter = tab.dataset.filter;
+          filterRows();
+        });
+      });
+
+      searchInput.addEventListener('input', filterRows);
+    })();
+  </script>
+</body></html>

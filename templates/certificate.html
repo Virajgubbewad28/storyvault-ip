@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Certificate (PDF Preview) — {{ asset['reg_id'] }}</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'royal-indigo': '#4F46E5',
+        'indigo-tint': '#EEF2FF',
+        'emerald-verified': '#059669',
+        'emerald-tint': '#ECFDF5',
+        'emerald-ink': '#065F46',
+        'amber-tint': '#FEF3C7',
+        'amber-ink': '#92400E',
+        'slate-border': '#E2E8F0',
+        'light-primary': '#4F46E5',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#EEF2FF',
+        'light-on-primary-container': '#3730A3',
+        'light-secondary': '#059669',
+        'light-surface': '#F8FAFC',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-on-surface': '#0F172A',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+      fontSize: {
+        'headline-lg': ['28px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-sm': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+    },
+  },
+};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 10mm;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #FFFFFF !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .a4-container { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-light-on-surface font-body antialiased m-0 p-0">
+
+  <!-- Screen-Only Action Toolbar -->
+  <div class="no-print sticky top-0 z-30 bg-light-surface-container-lowest border-b border-light-outline-variant px-6 py-3 flex items-center justify-between max-w-4xl mx-auto mt-4 rounded-lg shadow-sm">
+    <a href="{{ url_for('verify', reg_id=asset['reg_id']) }}" class="inline-flex items-center gap-2 font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface">
+      <span class="material-symbols-outlined text-title-md">arrow_back</span>
+      <span>Back to Verifier</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <span class="font-mono text-mono-sm text-light-on-surface-variant">A4 Print-Ready Extract • {{ asset['reg_id'] }}</span>
+      <button type="button" onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-light-on-primary-container transition-colors">
+        <span class="material-symbols-outlined text-title-md">print</span>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- A4 Print-Ready Certificate Sheet -->
+  <div class="a4-container max-w-4xl mx-auto my-6">
+    <article class="w-full bg-light-surface-container-lowest p-gutter-md shadow-md">
+      <div class="border-2 border-light-primary/40 rounded-md p-gutter-xs">
+        <div class="relative overflow-hidden border border-amber-ink/35 rounded-sm p-gutter-xl flex flex-col gap-gutter-lg bg-light-surface-container-lowest">
+
+          <!-- Faint Geometric Watermark Seal -->
+          <div class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-5" aria-hidden="true">
+            <svg width="420" height="420" viewBox="0 0 200 200" fill="none">
+              <circle cx="100" cy="100" r="90" stroke="#4F46E5" stroke-width="2.5" stroke-dasharray="8 6"></circle>
+              <circle cx="100" cy="100" r="74" stroke="#4F46E5" stroke-width="1.25"></circle>
+              <path d="M100 32L52 52V96C52 130 73 159 100 170C127 159 148 130 148 96V52L100 32Z" stroke="#4F46E5" stroke-width="2.5"></path>
+            </svg>
+          </div>
+
+          <!-- Top Institutional Header -->
+          <header class="relative z-10 flex items-center justify-between gap-gutter-md pb-gutter-md border-b border-light-outline-variant">
+            <div class="flex items-center gap-gutter-sm">
+              <div class="w-11 h-11 rounded bg-light-primary-container border border-light-outline-variant flex items-center justify-center text-light-primary shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+                  <path d="M12 7.5L15.2 12.5L12 16.5L8.8 12.5L12 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                  <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-title text-title-md text-light-on-surface leading-tight">StoryVault IP</span>
+                <span class="font-label text-label-sm text-light-on-surface-variant">Digital Story Image Source Register</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-end gap-gutter-xs">
+              <span class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/30 font-label text-label-sm">
+                <span class="material-symbols-outlined text-body-md text-emerald-verified" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+                <span>SHA-256 VERIFIED</span>
+              </span>
+              <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">DOC-FORMAT: A4 OFFICIAL EXTRACT</span>
+            </div>
+          </header>
+
+          <!-- Certificate Title Block -->
+          <div class="relative z-10 text-center flex flex-col items-center gap-gutter-xs py-gutter-sm">
+            <span class="font-label text-label-sm text-light-primary uppercase tracking-widest">Official Provenance Record</span>
+            <h1 class="font-headline text-headline-lg text-light-on-surface tracking-tight">
+              CERTIFICATE OF DIGITAL IMAGE SOURCE REGISTRATION
+            </h1>
+            <p class="font-body text-body-sm text-light-on-surface-variant max-w-xl text-pretty">
+              Issued under StoryVault IP Provenance Ledger • Aligned with Indian Copyright Act, 1957 (Artistic &amp; Literary Works)
+            </p>
+          </div>
+
+          <!-- Registration No & Timestamp Strip -->
+          <div class="relative z-10 grid grid-cols-2 gap-gutter-md bg-light-surface border border-light-outline-variant rounded px-gutter-md py-gutter-sm">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Registration No.</span>
+              <span class="font-mono text-mono-md text-light-primary tabular-nums">{{ asset['reg_id'] }}</span>
+            </div>
+            <div class="flex flex-col items-end gap-gutter-xs">
+              <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Immutable Timestamp</span>
+              <span class="font-mono text-mono-md text-light-on-surface tabular-nums">{{ asset['registered_at'] }}</span>
+            </div>
+          </div>
+
+          <!-- Registered Artwork Snapshot & Technical Telemetry -->
+          <div class="relative z-10 grid grid-cols-12 gap-gutter-md items-center bg-light-surface/70 border border-light-outline-variant rounded-md p-gutter-md">
+            <div class="col-span-5 rounded overflow-hidden border border-light-outline-variant bg-light-on-surface aspect-[16/9] flex items-center justify-center">
+              {% if asset['file_path'] %}
+                <img src="{{ url_for('static', filename=asset['file_path']) }}" alt="{{ asset['story_title'] }}" class="w-full h-full object-cover">
+              {% else %}
+                <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" role="img" aria-label="Registered story frame">
+                  <rect width="320" height="180" fill="#0F172A"></rect>
+                  <circle cx="252" cy="48" r="32" fill="#4F46E5" fill-opacity="0.3"></circle>
+                  <circle cx="252" cy="48" r="16" fill="#68DBA9" fill-opacity="0.25"></circle>
+                  <rect x="28" y="66" width="38" height="86" fill="#1E293B"></rect>
+                  <rect x="74" y="42" width="48" height="110" fill="#312E81"></rect>
+                  <rect x="132" y="54" width="58" height="98" fill="#1E293B"></rect>
+                  <rect x="198" y="34" width="46" height="118" fill="#3730A3"></rect>
+                  <rect x="252" y="72" width="46" height="80" fill="#1E293B"></rect>
+                  <path d="M84 56H112M84 68H112M84 80H112" stroke="#68DBA9" stroke-width="1.5"></path>
+                  <path d="M208 48H234M208 62H234M208 76H234" stroke="#C3C0FF" stroke-width="1.5"></path>
+                  <path d="M0 124H320" stroke="#4F46E5" stroke-width="3"></path>
+                  <path d="M0 152H320" stroke="#334155" stroke-width="1.5"></path>
+                </svg>
+              {% endif %}
+            </div>
+            <div class="col-span-7 flex flex-col gap-gutter-sm">
+              <div class="flex flex-col gap-gutter-xs">
+                <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Registered Digital Story Frame</span>
+                <span class="font-title text-title-md text-light-on-surface">{{ asset['story_title'] }} ({{ asset['episode_no'] }}, {{ asset['frame_id'] }})</span>
+                <span class="font-mono text-mono-sm text-light-on-surface-variant">{{ asset['file_name'] }}</span>
+              </div>
+              <div class="grid grid-cols-3 gap-gutter-sm pt-gutter-xs">
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-2.5 py-1.5">
+                  <span class="block font-label text-label-sm text-light-on-surface-variant">Resolution</span>
+                  <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">{{ asset['dimensions'] }}</span>
+                </div>
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-2.5 py-1.5">
+                  <span class="block font-label text-label-sm text-light-on-surface-variant">Size</span>
+                  <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">{{ asset['file_size'] }}</span>
+                </div>
+                <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded px-2.5 py-1.5">
+                  <span class="block font-label text-label-sm text-light-on-surface-variant">Profile</span>
+                  <span class="font-mono text-mono-sm text-light-on-surface">{{ asset['color_profile'] }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Authorship & Legal Classification Table -->
+          <div class="relative z-10 border border-light-outline-variant rounded-md overflow-hidden">
+            <table class="w-full text-left border-collapse">
+              <tbody class="divide-y divide-light-outline-variant">
+                <tr>
+                  <th scope="row" class="w-1/3 bg-light-surface px-gutter-md py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Registered Owner / Author</th>
+                  <td class="px-gutter-md py-2.5 font-label text-label-lg text-light-on-surface">{{ asset['primary_creator'] }} ({{ asset['co_author'] }})</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bg-light-surface px-gutter-md py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Source Classification</th>
+                  <td class="px-gutter-md py-2.5 font-label text-label-lg text-emerald-ink">{{ asset['source_type'] }}</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bg-light-surface px-gutter-md py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Copyright &amp; Usage License</th>
+                  <td class="px-gutter-md py-2.5 font-label text-label-lg text-light-on-surface">{{ asset['usage_license'] }}</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="bg-light-surface px-gutter-md py-2.5 font-label text-label-sm text-light-on-surface-variant uppercase">Statutory Alignment</th>
+                  <td class="px-gutter-md py-2.5 font-body text-body-sm text-light-on-surface">Protected Original Artistic Work • Indian Copyright Act, 1957</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cryptographic Proof Box & Unique Scannable QR Code -->
+          <div class="relative z-10 bg-light-surface border border-light-outline-variant rounded-md p-gutter-md flex items-center justify-between gap-gutter-md">
+            <div class="flex flex-col gap-gutter-xs flex-1 min-w-0">
+              <span class="font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider">Cryptographic Proof (SHA-256 Digest)</span>
+              <code class="font-mono text-mono-sm text-light-on-surface tabular-nums break-all">
+                {{ asset['sha256_hash'] }}
+              </code>
+              <span class="font-mono text-[11px] text-light-primary break-all">
+                Verification URL: {{ pdf_print_url }}
+              </span>
+            </div>
+
+            <div class="w-24 h-24 rounded border border-light-outline-variant bg-light-surface-container-lowest p-1 shrink-0 flex items-center justify-center">
+              <img src="{{ qr_data_uri }}" alt="Unique scannable QR code for {{ asset['reg_id'] }}" class="w-full h-full object-contain">
+            </div>
+          </div>
+
+          <!-- Signatory & Print Footer -->
+          <footer class="relative z-10 pt-gutter-md border-t border-light-outline-variant flex items-end justify-between gap-gutter-md">
+            <div class="flex flex-col gap-gutter-xs">
+              <span class="font-mono text-mono-sm text-light-on-surface border-b border-light-outline-variant pb-1">
+                StoryVault Automated Provenance Authority
+              </span>
+              <span class="font-label text-label-sm text-light-on-surface-variant">
+                Scan QR Code on Mobile to Verify &amp; Print PDF Certificate
+              </span>
+            </div>
+            <div class="flex flex-col items-end gap-gutter-xs">
+              <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">CERT-VER: 1.0 • PAGE 1 OF 1</span>
+              <span class="font-label text-label-sm text-light-on-surface-variant">Digital Image Provenance Ledger</span>
+            </div>
+          </footer>
+
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    if (new URLSearchParams(window.location.search).get('autoprint') === '1') {
+      window.addEventListener('load', () => setTimeout(() => window.print(), 300));
+    }
+  </script>
+</body></html>

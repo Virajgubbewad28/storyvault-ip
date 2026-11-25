@@ -1,0 +1,391 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryVault IP — Digital Story Image Source Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'royal-indigo': '#4F46E5',
+        'indigo-tint': '#EEF2FF',
+        'emerald-verified': '#059669',
+        'emerald-tint': '#ECFDF5',
+        'emerald-ink': '#065F46',
+        'slate-border': '#E2E8F0',
+        'light-primary': '#4F46E5',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#EEF2FF',
+        'light-on-primary-container': '#3730A3',
+        'light-secondary': '#059669',
+        'light-on-secondary': '#1C1C1C',
+        'light-secondary-container': '#ECFDF5',
+        'light-on-secondary-container': '#065F46',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-surface-container-high': '#CBD5E1',
+        'light-on-surface': '#0F172A',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+        'light-error': '#DC2626',
+        'light-on-error': '#FFFFFF',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-1px', fontWeight: '800' }],
+        'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '800' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-md': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '240ms',
+      },
+    },
+  },
+};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col bg-light-surface">
+
+    <!-- 1. Top Sticky Navbar -->
+    <header class="sticky top-0 z-30 bg-light-surface-container-lowest border-b border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-md flex flex-wrap items-center justify-between gap-gutter-md">
+        <a href="{{ url_for('index') }}" class="flex items-center gap-gutter-sm group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary rounded">
+          <div class="w-10 h-10 rounded bg-light-primary-container border border-light-outline-variant flex items-center justify-center shrink-0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-light-primary">
+              <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+              <path d="M12 7.5L15.2 12.5L12 16.5L8.8 12.5L12 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              <path d="M12 7.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface leading-tight">StoryVault IP</span>
+            <span class="font-label text-label-sm text-light-on-surface-variant">Digital Story Image Source Register</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary Navigation" class="flex items-center gap-gutter-lg md:gap-gutter-xl">
+          <a href="{{ url_for('index') }}" class="font-label text-label-lg text-light-primary transition-colors duration-state-change">Home</a>
+          <a href="{{ url_for('register') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Register Asset</a>
+          <a href="{{ url_for('ledger') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Source Ledger</a>
+          <a href="{{ url_for('verify') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Verify &amp; Certificate</a>
+        </nav>
+
+        <div class="flex items-center">
+          <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-verified shrink-0" aria-hidden="true"></span>
+            <span>IP &amp; Copyright Provenance Active ({{ total_count }} Assets)</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main id="home" class="flex-1">
+      <!-- 2. Hero Section -->
+      <section class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-section">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+
+          <!-- Left Column -->
+          <div class="lg:col-span-6 flex flex-col items-start gap-gutter-lg">
+            <h1 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
+              Cryptographic Proof of Origin for Every Story Frame.
+            </h1>
+
+            <p class="font-body text-body-lg text-light-on-surface-variant text-pretty max-w-prose">
+              Built for digital storytellers, webtoon creators, and illustrated publishers. Register story illustrations, track licensing sources, and generate tamper-proof SHA-256 ownership certificates in seconds.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-gutter-md pt-gutter-xs">
+              <a href="{{ url_for('register') }}" class="inline-flex items-center justify-center gap-gutter-sm px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg transition-colors duration-state-change hover:bg-light-on-primary-container">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">upload_file</span>
+                <span>Register Story Image</span>
+              </a>
+
+              <a href="{{ url_for('verify') }}" class="inline-flex items-center justify-center gap-gutter-sm px-6 py-3 rounded bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant font-label text-label-lg transition-colors duration-state-change hover:bg-light-surface-container-low">
+                <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">fingerprint</span>
+                <span>Verify Image Hash</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Live Asset Provenance Passport Showcase Card -->
+          <div class="lg:col-span-6">
+            <article class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-gutter-lg shadow-lg shadow-light-on-surface/5 flex flex-col gap-gutter-md">
+              <header class="flex flex-wrap items-center justify-between gap-gutter-sm pb-gutter-md border-b border-light-outline-variant">
+                <div class="flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider">Asset Provenance Passport</span>
+                  <span class="font-mono text-mono-sm text-light-primary tabular-nums">REG-ID: {{ latest_asset['reg_id'] if latest_asset else 'SV-2026-HAMPI-04' }}</span>
+                </div>
+                <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+                  <span class="material-symbols-outlined text-body-md text-emerald-verified" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+                  <span>SHA-256 Verified</span>
+                </span>
+              </header>
+
+              <!-- Thumbnail Preview -->
+              <div class="rounded-md overflow-hidden border border-light-outline-variant bg-light-primary-container aspect-[16/7] w-full flex items-center justify-center">
+                {% if latest_asset and latest_asset['file_path'] %}
+                  <img src="{{ url_for('static', filename=latest_asset['file_path']) }}" alt="{{ latest_asset['story_title'] }}" class="w-full h-full object-cover">
+                {% else %}
+                  <svg viewBox="0 0 480 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" role="img" aria-label="Stylized vector illustration">
+                    <rect width="480" height="210" fill="#EEF2FF"></rect>
+                    <circle cx="372" cy="56" r="32" fill="#4F46E5" fill-opacity="0.14"></circle>
+                    <circle cx="372" cy="56" r="18" fill="#4F46E5" fill-opacity="0.28"></circle>
+                    <path d="M0 156C56 134 114 142 172 126C228 110 294 124 356 136C408 146 444 138 480 144V210H0V156Z" fill="#C7D2FE"></path>
+                    <path d="M138 164V118H282V164H138Z" fill="#3730A3"></path>
+                    <path d="M156 118V92H264V118H156Z" fill="#4F46E5"></path>
+                    <path d="M182 92V66L210 46L238 66V92H182Z" fill="#312E81"></path>
+                    <rect x="152" y="122" width="8" height="42" fill="#EEF2FF"></rect>
+                    <rect x="186" y="122" width="8" height="42" fill="#EEF2FF"></rect>
+                    <rect x="226" y="122" width="8" height="42" fill="#EEF2FF"></rect>
+                    <rect x="260" y="122" width="8" height="42" fill="#EEF2FF"></rect>
+                    <circle cx="164" cy="168" r="14" fill="#0F172A" stroke="#EEF2FF" stroke-width="3"></circle>
+                    <circle cx="164" cy="168" r="4" fill="#EEF2FF"></circle>
+                    <circle cx="256" cy="168" r="14" fill="#0F172A" stroke="#EEF2FF" stroke-width="3"></circle>
+                    <circle cx="256" cy="168" r="4" fill="#EEF2FF"></circle>
+                    <path d="M0 184H480" stroke="#0F172A" stroke-width="2"></path>
+                    <rect x="14" y="14" width="452" height="182" rx="6" stroke="#4F46E5" stroke-opacity="0.28" stroke-width="1.5" stroke-dasharray="5 5"></rect>
+                  </svg>
+                {% endif %}
+              </div>
+
+              <!-- Title & Creator Metadata -->
+              <div class="flex flex-col gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Latest Registered Artwork</span>
+                  <h2 class="font-headline text-headline-md text-light-on-surface">
+                    {{ latest_asset['story_title'] ~ ' — ' ~ latest_asset['frame_id'] if latest_asset else 'Chronicles of Hampi — Panel 04' }}
+                  </h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+                  <div class="flex flex-col gap-gutter-xs">
+                    <span class="font-label text-label-sm text-light-on-surface-variant">Creator Name</span>
+                    <span class="font-label text-label-lg text-light-on-surface">{{ latest_asset['primary_creator'] if latest_asset else 'Aarav Sharma' }}</span>
+                  </div>
+                  <div class="flex flex-col gap-gutter-xs">
+                    <span class="font-label text-label-sm text-light-on-surface-variant">Source Tag</span>
+                    <span class="inline-flex items-center w-fit px-2.5 py-0.5 rounded bg-light-primary-container text-light-on-primary-container font-label text-label-sm">
+                      <span>{{ latest_asset['source_type'] if latest_asset else '100% Original Artwork' }}</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cryptographic Metadata Footer -->
+              <div class="bg-light-surface rounded-md border border-light-outline-variant p-gutter-md flex flex-col gap-gutter-sm">
+                <div class="flex flex-wrap items-center justify-between gap-gutter-sm">
+                  <span class="font-label text-label-sm text-light-on-surface-variant">SHA-256 Digest</span>
+                  <span class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">{{ latest_asset['registered_at'] if latest_asset else '25 Nov 2026, 17:30 IST' }}</span>
+                </div>
+                <div class="flex items-center justify-between gap-gutter-sm bg-light-surface-container-lowest border border-light-outline-variant rounded px-3 py-2">
+                  <code class="font-mono text-mono-md text-light-on-surface tabular-nums break-all">
+                    {{ (latest_asset['sha256_hash'][:32] ~ '...') if latest_asset else 'e3b0c44298fc1c149afbf4c8996fb924...' }}
+                  </code>
+                  <a href="{{ url_for('verify', reg_id=latest_asset['reg_id']) if latest_asset else url_for('verify') }}" title="View Official Certificate" class="material-symbols-outlined text-title-md text-emerald-verified shrink-0">lock</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. Graphical 3-Step Pipeline Section -->
+      <section class="border-t border-light-outline-variant bg-light-surface-container-lowest py-section">
+        <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin flex flex-col gap-gutter-xl">
+          <header class="flex flex-col gap-gutter-sm max-w-2xl">
+            <span class="font-label text-label-sm text-light-primary uppercase tracking-wider">Provenance Workflow</span>
+            <h2 class="font-headline text-headline-lg text-light-on-surface">How Source Registration Works</h2>
+            <p class="font-body text-body-md text-light-on-surface-variant">
+              Three deterministic steps transform raw story illustrations into verifiable, copyright-ready ledger entries.
+            </p>
+          </header>
+
+          <div class="grid grid-cols-1 lg:grid-cols-11 gap-gutter-md items-stretch">
+            <!-- Step 01 -->
+            <article class="lg:col-span-3 h-full bg-light-surface border border-light-outline-variant rounded-md p-gutter-lg flex flex-col gap-gutter-md">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <div class="w-11 h-11 rounded bg-light-primary-container text-light-primary flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" stroke="currentColor" stroke-width="1.75"></rect>
+                    <path d="M7.5 15L10.5 11.5L13.5 14L16 11L18.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle cx="8.5" cy="9" r="1.25" fill="currentColor"></circle>
+                  </svg>
+                </div>
+                <span class="font-mono text-mono-sm text-light-primary bg-light-primary-container px-2.5 py-1 rounded-full tabular-nums">Step 01</span>
+              </div>
+              <div class="flex flex-col gap-gutter-xs">
+                <h3 class="font-title text-body-lg font-semibold text-light-on-surface">Ingest &amp; Inspect</h3>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Upload story artwork and extract resolution, format, and author metadata.
+                </p>
+              </div>
+            </article>
+
+            <!-- Flow Arrow 1 -> 2 -->
+            <div class="hidden lg:flex lg:col-span-1 items-center justify-center" aria-hidden="true">
+              <svg width="32" height="24" viewBox="0 0 32 24" fill="none" class="text-light-primary">
+                <path d="M2 12H28M28 12L21 5M28 12L21 19" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+
+            <!-- Step 02 -->
+            <article class="lg:col-span-3 h-full bg-light-surface border border-light-outline-variant rounded-md p-gutter-lg flex flex-col gap-gutter-md">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <div class="w-11 h-11 rounded bg-light-primary-container text-light-primary flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3.5V7M12 17V20.5M4.5 12H8M16 12H19.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"></path>
+                    <rect x="8" y="8" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.75"></rect>
+                    <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                </div>
+                <span class="font-mono text-mono-sm text-light-primary bg-light-primary-container px-2.5 py-1 rounded-full tabular-nums">Step 02</span>
+              </div>
+              <div class="flex flex-col gap-gutter-xs">
+                <h3 class="font-title text-body-lg font-semibold text-light-on-surface">SHA-256 Fingerprinting</h3>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Generate a unique cryptographic hash and classify source rights (Original, Licensed, CC0, AI-Assisted).
+                </p>
+              </div>
+            </article>
+
+            <!-- Flow Arrow 2 -> 3 -->
+            <div class="hidden lg:flex lg:col-span-1 items-center justify-center" aria-hidden="true">
+              <svg width="32" height="24" viewBox="0 0 32 24" fill="none" class="text-light-primary">
+                <path d="M2 12H28M28 12L21 5M28 12L21 19" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+
+            <!-- Step 03 -->
+            <article class="lg:col-span-3 h-full bg-light-surface border border-light-outline-variant rounded-md p-gutter-lg flex flex-col gap-gutter-md">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <div class="w-11 h-11 rounded bg-emerald-tint text-emerald-verified flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3L5 6V11.5C5 15.9 8 19.9 12 21C16 19.9 19 15.9 19 11.5V6L12 3Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+                    <path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <span class="font-mono text-mono-sm text-emerald-ink bg-emerald-tint px-2.5 py-1 rounded-full tabular-nums">Step 03</span>
+              </div>
+              <div class="flex flex-col gap-gutter-xs">
+                <h3 class="font-title text-body-lg font-semibold text-light-on-surface">Immutable Ledger &amp; Certificate</h3>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Record timestamped ownership and export a verifiable Copyright Source Certificate.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Key Metrics & Legal Alignment Strip -->
+      <section class="border-t border-light-outline-variant bg-light-surface py-section">
+        <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+            <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-lg flex flex-col justify-between gap-gutter-sm">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-mono text-mono-sm text-light-primary tabular-nums">SHA-256</span>
+                <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">enhanced_encryption</span>
+              </div>
+              <h3 class="font-title text-body-md font-semibold text-light-on-surface">256-Bit Cryptographic Hashing</h3>
+            </article>
+
+            <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-lg flex flex-col justify-between gap-gutter-sm">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-mono text-mono-sm text-light-primary tabular-nums">04 TIERS</span>
+                <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">category</span>
+              </div>
+              <h3 class="font-title text-body-md font-semibold text-light-on-surface">4 Source Classifications</h3>
+            </article>
+
+            <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-lg flex flex-col justify-between gap-gutter-sm">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-mono text-mono-sm text-emerald-ink tabular-nums">REAL-TIME</span>
+                <span class="material-symbols-outlined text-title-md text-emerald-verified" aria-hidden="true">verified_user</span>
+              </div>
+              <h3 class="font-title text-body-md font-semibold text-light-on-surface">Instant Tamper Detection</h3>
+            </article>
+
+            <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-md p-gutter-lg flex flex-col justify-between gap-gutter-sm">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <span class="font-mono text-mono-sm text-light-primary tabular-nums">STATUTORY</span>
+                <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">gavel</span>
+              </div>
+              <h3 class="font-title text-body-md font-semibold text-light-on-surface">Copyright Act 1957 Aligned</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 5. Clean Minimal Footer -->
+    <footer class="border-t border-light-outline-variant bg-light-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-lg flex items-center justify-center text-center">
+        <p class="font-body text-body-sm text-light-on-surface-variant">
+          StoryVault IP • Digital Story Image Source Register
+        </p>
+      </div>
+    </footer>
+
+  </div>
+</body></html> 

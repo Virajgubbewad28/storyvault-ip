@@ -1,0 +1,458 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify &amp; Official Source Certificate — StoryVault IP</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'royal-indigo': '#4F46E5',
+        'indigo-tint': '#EEF2FF',
+        'emerald-verified': '#059669',
+        'emerald-tint': '#ECFDF5',
+        'emerald-ink': '#065F46',
+        'amber-ink': '#92400E',
+        'slate-border': '#E2E8F0',
+        'light-primary': '#4F46E5',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#EEF2FF',
+        'light-on-primary-container': '#3730A3',
+        'light-secondary': '#059669',
+        'light-secondary-container': '#ECFDF5',
+        'light-on-secondary-container': '#065F46',
+        'light-background': '#F8FAFC',
+        'light-on-background': '#0F172A',
+        'light-surface': '#F8FAFC',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F1F5F9',
+        'light-surface-container': '#E2E8F0',
+        'light-on-surface': '#0F172A',
+        'light-on-surface-variant': '#475569',
+        'light-outline': '#64748B',
+        'light-outline-variant': '#E2E8F0',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'page-margin': '32px',
+      },
+      fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+      fontSize: {
+        'headline-md': ['22px', { lineHeight: '30px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'title-md': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['13px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.4px', fontWeight: '600' }],
+        'mono-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+      },
+    },
+  },
+};
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #FFFFFF !important; }
+      #certificate-section { width: 100% !important; max-width: 100% !important; grid-column: span 12 !important; }
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col bg-light-surface">
+
+    <!-- 1. Top Sticky Navbar -->
+    <header class="no-print sticky top-0 z-30 bg-light-surface-container-lowest border-b border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-md flex flex-wrap items-center justify-between gap-gutter-md">
+        <a href="{{ url_for('index') }}" class="flex items-center gap-gutter-sm group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary rounded">
+          <div class="w-10 h-10 rounded bg-light-primary-container border border-light-outline-variant flex items-center justify-center shrink-0">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="text-light-primary">
+              <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+              <path d="M12 7.5L15.2 12.5L12 16.5L8.8 12.5L12 7.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              <path d="M12 7.5V11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="12" cy="12" r="1" fill="currentColor"></circle>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title text-title-md text-light-on-surface leading-tight">StoryVault IP</span>
+            <span class="font-label text-label-sm text-light-on-surface-variant">Digital Story Image Source Register</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary Navigation" class="flex items-center gap-gutter-lg md:gap-gutter-xl">
+          <a href="{{ url_for('index') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Home</a>
+          <a href="{{ url_for('register') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Register Asset</a>
+          <a href="{{ url_for('ledger') }}" class="font-label text-label-lg text-light-on-surface-variant hover:text-light-on-surface transition-colors">Source Ledger</a>
+          <a href="{{ url_for('verify') }}" class="font-label text-label-lg text-light-primary transition-colors">Verify &amp; Certificate</a>
+        </nav>
+
+        <div class="flex items-center">
+          <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-verified shrink-0" aria-hidden="true"></span>
+            <span>IP &amp; Copyright Provenance Active</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main id="verify-main" class="flex-1">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-xl">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-start">
+
+          <!-- 1. Left Column (40% width): Tamper & Ownership Verification Tool -->
+          <section class="no-print lg:col-span-5 flex flex-col gap-gutter-lg">
+            <article class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-gutter-lg flex flex-col gap-gutter-lg">
+              <header class="flex flex-col gap-gutter-xs">
+                <span class="font-label text-label-sm text-light-primary uppercase tracking-wider">Tamper &amp; Ownership Verification Tool</span>
+                <h1 class="font-headline text-headline-md text-light-on-surface">Verify Any Story Image</h1>
+                <p class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Upload an image file to check if its cryptographic SHA-256 fingerprint matches a registered copyright record.
+                </p>
+              </header>
+
+              <input id="verify-file-input" type="file" accept="image/png,image/jpeg,image/webp" class="sr-only">
+              <div id="verify-dropzone" role="button" tabindex="0" aria-label="Drop image to verify authenticity" class="border-2 border-dashed border-light-outline-variant hover:border-light-primary rounded-md bg-light-surface p-gutter-lg flex flex-col items-center justify-center text-center gap-gutter-sm transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary">
+                <div class="w-10 h-10 rounded-full bg-light-primary-container text-light-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">upload_file</span>
+                </div>
+                <span class="font-label text-label-lg text-light-on-surface">
+                  Drop image to verify authenticity
+                </span>
+                <span class="font-body text-body-sm text-light-on-surface-variant">
+                  PNG, JPG, WEBP • Instant SHA-256 comparison
+                </span>
+              </div>
+
+              <!-- Verification Result Banner -->
+              {% if asset %}
+              <div id="verify-banner" role="status" class="bg-emerald-tint border border-emerald-verified rounded-md p-gutter-md flex items-start gap-gutter-sm">
+                <span id="verify-banner-icon" class="material-symbols-outlined text-headline-md text-emerald-verified shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">check_circle</span>
+                <div class="flex flex-col gap-gutter-xs">
+                  <h2 id="verify-banner-title" class="font-label text-label-lg text-emerald-ink">
+                    {% if created %}
+                      NEW RECORD COMMITTED — CERTIFICATE ISSUED
+                    {% elif duplicate %}
+                      PRIOR RECORD FOUND — AUTHENTIC SOURCE VERIFIED
+                    {% else %}
+                      EXACT MATCH — AUTHENTIC SOURCE VERIFIED
+                    {% endif %}
+                  </h2>
+                  <p id="verify-banner-desc" class="font-body text-body-sm text-emerald-ink text-pretty">
+                    Certificate Registry ID #{{ asset['reg_id'] }} verified with zero pixel alteration. Scan the unique QR code on the right to open the printable PDF certificate.
+                  </p>
+                </div>
+              </div>
+              {% else %}
+              <div id="verify-banner" role="status" class="bg-light-surface border border-light-outline-variant rounded-md p-gutter-md flex items-start gap-gutter-sm">
+                <span id="verify-banner-icon" class="material-symbols-outlined text-headline-md text-light-outline shrink-0 mt-0.5" aria-hidden="true">info</span>
+                <div class="flex flex-col gap-gutter-xs">
+                  <h2 id="verify-banner-title" class="font-label text-label-lg text-light-on-surface">
+                    NO IMAGE UPLOADED — AWAITING VERIFICATION
+                  </h2>
+                  <p id="verify-banner-desc" class="font-body text-body-sm text-light-on-surface-variant text-pretty">
+                    Upload a story image above to verify its cryptographic fingerprint. Certificate and PDF download unlock only after a valid match is confirmed.
+                  </p>
+                </div>
+              </div>
+              {% endif %}
+            </article>
+          </section>
+
+          <!-- 2. Right Column (60% width): Empty State OR Official Certificate -->
+          <section id="certificate-section" class="lg:col-span-7 flex flex-col gap-gutter-lg">
+
+            <!-- Empty / No Data State (Shown when no image is verified yet or verification fails) -->
+            <article id="no-data-card" class="{{ 'hidden' if asset else '' }} bg-light-surface-container-lowest border border-dashed border-light-outline-variant rounded-lg p-gutter-xl flex flex-col items-center justify-center text-center gap-gutter-md min-h-[420px]">
+              <div id="no-data-icon-wrap" class="w-14 h-14 rounded-full bg-light-surface border border-light-outline-variant text-light-outline flex items-center justify-center">
+                <span id="no-data-icon" class="material-symbols-outlined text-headline-md" aria-hidden="true">description</span>
+              </div>
+              <div class="flex flex-col gap-gutter-xs max-w-md">
+                <span class="font-mono text-mono-sm text-light-outline uppercase tracking-wider">Status: No Data</span>
+                <h2 id="no-data-title" class="font-headline text-headline-md text-light-on-surface">
+                  No Certificate Data Available
+                </h2>
+                <p id="no-data-desc" class="font-body text-body-md text-light-on-surface-variant text-pretty">
+                  Upload a story frame in the verification tool on the left to validate its SHA-256 fingerprint. Once verified, the official certificate and PDF download will appear here.
+                </p>
+              </div>
+              <a href="{{ url_for('ledger') }}" class="inline-flex items-center gap-gutter-xs px-4 py-2 rounded bg-light-surface border border-light-outline-variant hover:border-light-primary font-label text-label-sm text-light-on-surface transition-colors">
+                <span>Browse Registered Assets in Source Ledger</span>
+              </a>
+            </article>
+
+            <!-- Verified Certificate + Download Buttons (Hidden until verified) -->
+            <div id="certificate-wrapper" class="{{ '' if asset else 'hidden' }} flex flex-col gap-gutter-lg">
+              <article class="bg-light-surface-container-lowest border-2 border-light-primary/30 rounded-lg p-gutter-sm shadow-lg shadow-light-on-surface/5">
+                <div class="relative overflow-hidden border border-amber-ink/30 rounded-md p-gutter-lg flex flex-col gap-gutter-lg bg-light-surface-container-lowest">
+
+                  <!-- Faint Geometric Watermark Seal in Background -->
+                  <div class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-5" aria-hidden="true">
+                    <svg width="320" height="320" viewBox="0 0 200 200" fill="none">
+                      <circle cx="100" cy="100" r="88" stroke="#4F46E5" stroke-width="3" stroke-dasharray="8 6"></circle>
+                      <circle cx="100" cy="100" r="72" stroke="#4F46E5" stroke-width="1.5"></circle>
+                      <path d="M100 34L54 54V96C54 129 74 158 100 168C126 158 146 129 146 96V54L100 34Z" stroke="#4F46E5" stroke-width="3"></path>
+                    </svg>
+                  </div>
+
+                  <!-- Certificate Header -->
+                  <header class="relative z-10 flex flex-col items-center text-center gap-gutter-sm pb-gutter-md border-b border-light-outline-variant">
+                    <div class="w-12 h-12 rounded-full bg-light-primary-container border border-amber-ink/30 flex items-center justify-center text-light-primary">
+                      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 2.5L4.5 5.5V11.2C4.5 16.05 7.7 20.45 12 21.75C16.3 20.45 19.5 16.05 19.5 11.2V5.5L12 2.5Z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"></path>
+                        <path d="M9 12L11 14L15.5 9.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <h2 class="font-headline text-headline-md text-light-on-surface tracking-tight">
+                      CERTIFICATE OF DIGITAL IMAGE SOURCE REGISTRATION
+                    </h2>
+                    <p class="font-body text-body-sm text-light-on-surface-variant text-pretty max-w-xl">
+                      Issued under StoryVault IP Provenance Ledger • Aligned with Indian Copyright Act, 1957 (Artistic &amp; Literary Works)
+                    </p>
+                  </header>
+
+                  <!-- Certificate ID & Date Row -->
+                  <div class="relative z-10 flex flex-wrap items-center justify-between gap-gutter-sm bg-light-surface border border-light-outline-variant rounded px-gutter-md py-gutter-sm">
+                    <span id="cert-reg-id" class="font-mono text-mono-sm text-light-primary tabular-nums">
+                      Registration No: {{ asset['reg_id'] if asset else '' }}
+                    </span>
+                    <span id="cert-timestamp" class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">
+                      Timestamp: {{ asset['registered_at'] if asset else '' }}
+                    </span>
+                  </div>
+
+                  <!-- Certificate Body Grid -->
+                  <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+                    <div class="flex flex-col gap-gutter-xs p-gutter-sm rounded bg-light-surface/60 border border-light-outline-variant">
+                      <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Digital Story Title</span>
+                      <span id="cert-story-title" class="font-label text-label-lg text-light-on-surface">
+                        {{ (asset['story_title'] ~ ' (' ~ asset['episode_no'] ~ ', ' ~ asset['frame_id'] ~ ')') if asset else '' }}
+                      </span>
+                    </div>
+
+                    <div class="flex flex-col gap-gutter-xs p-gutter-sm rounded bg-light-surface/60 border border-light-outline-variant">
+                      <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Registered Owner / Author</span>
+                      <span id="cert-owner" class="font-label text-label-lg text-light-on-surface">
+                        {{ (asset['primary_creator'] ~ ' (' ~ asset['co_author'] ~ ')') if asset else '' }}
+                      </span>
+                    </div>
+
+                    <div class="flex flex-col gap-gutter-xs p-gutter-sm rounded bg-light-surface/60 border border-light-outline-variant">
+                      <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Source Classification</span>
+                      <span id="cert-source-type" class="font-label text-label-lg text-emerald-ink">
+                        {{ asset['source_type'] if asset else '' }}
+                      </span>
+                    </div>
+
+                    <div class="flex flex-col gap-gutter-xs p-gutter-sm rounded bg-light-surface/60 border border-light-outline-variant">
+                      <span class="font-label text-label-sm text-light-on-surface-variant uppercase">Copyright Status</span>
+                      <span id="cert-license" class="font-label text-label-lg text-light-on-surface">
+                        {{ asset['usage_license'] if asset else '' }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Cryptographic Proof Box + Dynamic Unique QR Code -->
+                  <div class="relative z-10 bg-light-surface border border-light-outline-variant rounded-md p-gutter-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-gutter-md">
+                    <div class="flex flex-col gap-gutter-xs flex-1 min-w-0">
+                      <span class="font-label text-label-sm text-light-on-surface-variant uppercase tracking-wider">Cryptographic Proof (SHA-256 Digest)</span>
+                      <code id="cert-sha256" class="font-mono text-mono-sm text-light-on-surface tabular-nums break-all">
+                        {{ asset['sha256_hash'] if asset else '' }}
+                      </code>
+                      <span id="cert-direct-url" class="font-mono text-[11px] text-light-primary break-all">
+                        {{ pdf_print_url }}
+                      </span>
+                    </div>
+
+                    <div class="w-24 h-24 rounded border border-light-outline-variant bg-light-surface-container-lowest p-1 shrink-0 flex items-center justify-center">
+                      <img id="cert-qr-img" src="{{ qr_data_uri }}" alt="Unique scannable QR verification code" class="w-full h-full object-contain">
+                    </div>
+                  </div>
+
+                  <!-- Certificate Footer -->
+                  <footer class="relative z-10 pt-gutter-md border-t border-light-outline-variant flex flex-wrap items-end justify-between gap-gutter-md">
+                    <div class="flex flex-col gap-gutter-xs">
+                      <span class="font-mono text-mono-sm text-light-on-surface border-b border-light-outline-variant pb-1">
+                        StoryVault Automated Provenance Authority
+                      </span>
+                      <span class="font-label text-label-sm text-light-on-surface-variant">
+                        Scan QR on Mobile for Instant PDF Print Certificate
+                      </span>
+                    </div>
+                    <span role="status" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-emerald-tint text-emerald-ink border border-emerald-verified/20 font-label text-label-sm">
+                      <span class="material-symbols-outlined text-body-md text-emerald-verified" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">verified</span>
+                      <span>Tamper-Proof Record</span>
+                    </span>
+                  </footer>
+
+                </div>
+              </article>
+
+              <!-- Action Buttons Below Certificate Card (Only visible when verified) -->
+              <div class="no-print flex flex-wrap items-center justify-end gap-gutter-md">
+                <button id="copy-link-btn" type="button" data-url="{{ pdf_print_url }}" class="inline-flex items-center justify-center gap-gutter-sm px-5 py-2.5 rounded bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant font-label text-label-lg transition-colors hover:bg-light-surface-container-low">
+                  <span class="material-symbols-outlined text-title-md text-light-primary" aria-hidden="true">link</span>
+                  <span id="copy-link-label">Copy Direct Certificate Link</span>
+                </button>
+
+                <a id="download-pdf-btn" href="{{ pdf_print_url }}" target="_blank" class="inline-flex items-center justify-center gap-gutter-sm px-6 py-2.5 rounded bg-light-primary text-light-on-primary font-label text-label-lg transition-colors hover:bg-light-on-primary-container">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">picture_as_pdf</span>
+                  <span>Download Printable Certificate (PDF)</span>
+                </a>
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Clean Minimal Footer -->
+    <footer class="no-print border-t border-light-outline-variant bg-light-surface-container-lowest">
+      <div class="max-w-7xl mx-auto px-gutter-lg lg:px-page-margin py-gutter-lg flex items-center justify-center text-center">
+        <p class="font-body text-body-sm text-light-on-surface-variant">
+          StoryVault IP • Digital Story Image Source Register
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const copyBtn = document.getElementById('copy-link-btn');
+      const copyLabel = document.getElementById('copy-link-label');
+      copyBtn.addEventListener('click', () => {
+        if (!copyBtn.dataset.url) return;
+        navigator.clipboard.writeText(copyBtn.dataset.url);
+        copyLabel.textContent = 'Direct PDF Link Copied!';
+        setTimeout(() => { copyLabel.textContent = 'Copy Direct Certificate Link'; }, 1500);
+      });
+
+      const dropzone = document.getElementById('verify-dropzone');
+      const fileInput = document.getElementById('verify-file-input');
+      const banner = document.getElementById('verify-banner');
+      const bannerIcon = document.getElementById('verify-banner-icon');
+      const bannerTitle = document.getElementById('verify-banner-title');
+      const bannerDesc = document.getElementById('verify-banner-desc');
+
+      const noDataCard = document.getElementById('no-data-card');
+      const noDataIconWrap = document.getElementById('no-data-icon-wrap');
+      const noDataIcon = document.getElementById('no-data-icon');
+      const noDataTitle = document.getElementById('no-data-title');
+      const noDataDesc = document.getElementById('no-data-desc');
+      const certWrapper = document.getElementById('certificate-wrapper');
+
+      dropzone.addEventListener('click', () => fileInput.click());
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.classList.add('border-light-primary', 'bg-light-primary-container/30');
+      });
+      dropzone.addEventListener('dragleave', () => {
+        dropzone.classList.remove('border-light-primary', 'bg-light-primary-container/30');
+      });
+      dropzone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('border-light-primary', 'bg-light-primary-container/30');
+        if (e.dataTransfer.files.length > 0) {
+          verifyFile(e.dataTransfer.files[0]);
+        }
+      });
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          verifyFile(fileInput.files[0]);
+        }
+      });
+
+      async function verifyFile(file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const resp = await fetch('/api/verify', { method: 'POST', body: formData });
+        const data = await resp.json();
+
+        if (data.verified && data.record) {
+          const r = data.record;
+          banner.className = 'bg-emerald-tint border border-emerald-verified rounded-md p-gutter-md flex items-start gap-gutter-sm';
+          bannerIcon.className = 'material-symbols-outlined text-headline-md text-emerald-verified shrink-0 mt-0.5';
+          bannerIcon.textContent = 'check_circle';
+          bannerTitle.className = 'font-label text-label-lg text-emerald-ink';
+          bannerTitle.textContent = 'EXACT MATCH — AUTHENTIC SOURCE VERIFIED';
+          bannerDesc.className = 'font-body text-body-sm text-emerald-ink text-pretty';
+          bannerDesc.textContent = `Uploaded file SHA-256 hash matches Registry ID #${r.reg_id} with zero pixel alteration.`;
+
+          // Populate and reveal Certificate + Download buttons
+          document.getElementById('cert-reg-id').textContent = `Registration No: ${r.reg_id}`;
+          document.getElementById('cert-timestamp').textContent = `Timestamp: ${r.registered_at}`;
+          document.getElementById('cert-story-title').textContent = `${r.story_title} (${r.episode_no}, ${r.frame_id})`;
+          document.getElementById('cert-owner').textContent = `${r.primary_creator} (${r.co_author})`;
+          document.getElementById('cert-source-type').textContent = r.source_type;
+          document.getElementById('cert-license').textContent = r.usage_license;
+          document.getElementById('cert-sha256').textContent = r.sha256_hash;
+          document.getElementById('cert-direct-url').textContent = data.pdf_print_url;
+          document.getElementById('cert-qr-img').src = data.qr_data_uri;
+          document.getElementById('download-pdf-btn').href = data.pdf_print_url;
+          copyBtn.dataset.url = data.pdf_print_url;
+
+          noDataCard.classList.add('hidden');
+          certWrapper.classList.remove('hidden');
+        } else {
+          banner.className = 'bg-red-50 border border-red-600 rounded-md p-gutter-md flex items-start gap-gutter-sm';
+          bannerIcon.className = 'material-symbols-outlined text-headline-md text-red-600 shrink-0 mt-0.5';
+          bannerIcon.textContent = 'gpp_bad';
+          bannerTitle.className = 'font-label text-label-lg text-red-900';
+          bannerTitle.textContent = 'NOT VERIFIED — NO MATCHING RECORD';
+          bannerDesc.className = 'font-body text-body-sm text-red-800 text-pretty';
+          bannerDesc.textContent = `Computed SHA-256 (${data.sha256_hash.slice(0, 16)}...) is not registered or the file has been modified.`;
+
+          // Hide Certificate & Download buttons and show No Data state
+          certWrapper.classList.add('hidden');
+          noDataCard.classList.remove('hidden');
+          noDataIconWrap.className = 'w-14 h-14 rounded-full bg-red-50 border border-red-200 text-red-600 flex items-center justify-center';
+          noDataIcon.textContent = 'block';
+          noDataTitle.textContent = 'No Data — Verification Failed';
+          noDataDesc.textContent = 'No matching copyright record was found for this file. Certificate preview and PDF download are disabled for unverified assets.';
+        }
+      }
+    })();
+  </script>
+</body></html>

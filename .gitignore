@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+storyvault.db
+static/uploads/*
+!static/uploads/.gitkeep
+*.db-wal
+*.db-shm
